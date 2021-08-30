@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title> Calculadora Simples </title>
+    <link href="..\CSS\style.css" rel="stylesheet">
+    <script src="..\scripts\main.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <h1> CALCULADORA </h1>
+    </header>
+
+    <main>
+
+      <div class="calculator-grid">
+        <div class="output">
+          <div data-previous-number class="previous-number"></div>
+        </div>
+        <div>
+          <div data-current-number class="current-number"></div>
+        </div>
+        <button data-memory-store>Memorizar  Número</button>
+        <button data-memory-recover>Recuperar Número</button>
+        <div></div>
+        <div></div>
+        <button data-memory-result class="span-two">Ultimo Resultado</button>
+        <button data-operator class="span-two"> % </button>
+        <button data-number>1</button>
+        <button data-number>2</button>
+        <button data-number>3</button>
+        <button data-operator>*</button>
+        <button data-number>4</button>
+        <button data-number>5</button>
+        <button data-number>6</button>
+        <button data-operator>-</button>
+        <button data-number>7</button>
+        <button data-number>8</button>
+        <button data-number>9</button>
+        <button data-operator>+</button>
+        <button data-number>.</button>
+        <button data-number>0</button>
+        <button data-delete>DEL</button>
+        <button data-operator>÷</button>
+        <div></div>
+        <button data-clear class="span-two">C</button>
+        <button data-clear-all class="span-two">AC</button>
+        <button data-result class="span-two">=</button>
+      </div>
+
+
+      <br><br>
+
+      <section>
+        <table class="tip-Calculator">
+          <th colspan="2">  CALCULADORA DE GORJETA </th>
+          <tr>
+            <td> <label for="tip-Input"> Insira o valor da conta</label> </td>
+            <td> <input type="text" name="tipCalculatorInput" id="tip-Input" required maxlength="10" value=""> </td>
+            <td colspan="3" rowspan="3"> <button class="tip-button" data-equal-tip>Calcular</button>
+         </tr>
+           <tr>
+             <td> <label for="tip-Input"> Insira o número de pessoas </label> </td>
+             <td> <input type="text" name="tipCalculatorInput" id="tip-People" required maxlength="10" value=""> </td>
+           </tr>
+         <tr>
+           <td> <label for="tip-Input"> Porcentagem de gorjeta </label> </td>
+           <td> <input type="text" name="tipCalculatorInput" id="tip-Input-Percentage" required maxlength="10" value="10"> </td>
+         </tr>
+         <tr>
+           <td> O total para cada um é: </td>
+           <td> <div data-tip-result> 123 </div> </td>
+        </tr>
+        </table>
+      </section>
+
+
+      <br>
+
+    </main>
+
+
+    <footer>
+      <p> Feito por Vinicius Pereira - CC Commons  </p>
+      <p> Tutorial utilizado: <a href="https://www.section.io/engineering-education/building-a-calculator-a-javascript-project-for-beginners/"> JS Calculator</a>  </p>
+    </footer>
+
+  </body>
+
+</html>
