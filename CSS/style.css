@@ -1,19 +1,38 @@
+* {
+  font: 12px Segoe UI, serif;
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #89CFF0;
+  height:100%;
+}
+
+footer{
+  position: absolute;
+  bottom:0;
+  width:100%;
+  border-top: 0.5px solid;
+  background: #B9D9EB;
+}
+
+header{
+  background: #B9D9EB;
+  border-bottom: 0.5px solid;
+}
 
 h1 {
   text-align: center;
-  font-family: Roboto, sans-serif;
+  font: 24px Amiri, sans serif;
 }
 
 p {
   text-align: center;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(23,167,186,1) 0%, rgba(0,213,255,1) 70%);
-}
+
 
 .calculator-grid {
     display: grid;
@@ -22,9 +41,25 @@ body {
     grid-template-columns: repeat(4, 125px);
     grid-template-rows: minmax(50px) repeat(5, 50px);
     grid-gap: 15px 2px;
-  }
+    }
 
 .tip-Calculator {
    margin-left: auto;
    margin-right: auto;
+}
+
+.previous-number, .current-number {
+  font: 12px Arial, sans-serif;
+}
+
+table, th, td {
+  background-color: #7CB9E8;
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 8px;
+}
+
+#tip-Result-Cell{
+
+  text-align: center;
 }
