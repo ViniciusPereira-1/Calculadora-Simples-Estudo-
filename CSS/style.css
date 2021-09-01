@@ -1,65 +1,112 @@
 * {
   font: 12px Segoe UI, serif;
+  box-sizing: border-box;
+  /* border: 0.5px solid red; for layout visualization*/
+}
 
+html {
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  top: 0;
+  left: 0;
+  position: fixed;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background: #89CFF0;
   height:100%;
 }
 
 footer{
+  font: 5px Arial, serif;
+  text-align: center;
   position: absolute;
-  bottom:0;
+  bottom: 0;
   width:100%;
-  border-top: 0.5px solid;
-  background: #B9D9EB;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
 
 header{
-  background: #B9D9EB;
-  border-bottom: 0.5px solid;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
 
 h1 {
-  text-align: center;
-  font: 24px Amiri, sans serif;
-}
-
-p {
+  font: 24px Verdana, sans-serif;
   text-align: center;
 }
 
+table, th, td {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  border: 1px solid #929cde;
+  border-collapse: collapse;
+  padding: 8px;
+}
 
+button {
+  cursor: pointer;
+  font-size: 1rem;
+  border: 1px, solid lightgrey;
+  background-color: rbga(255, 255, 255, 0.75);
+}
+
+.calculator-title{
+  width: 100%;
+  margin: auto;
+  grid-column: 1 / -1;
+  font: 20px Arial;
+  border: 1px solid darkgrey;
+}
 
 .calculator-grid {
     display: grid;
     justify-content: center;
-    align-items: center;
-    grid-template-columns: repeat(4, 125px);
-    grid-template-rows: minmax(50px) repeat(5, 50px);
-    grid-gap: 15px 2px;
-    }
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    width: 75%;
+    margin: auto;
+    align-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(1fr), repeat(6, 2fr);
+    grid-gap: 25px 6px;
+    border: 1px solid #929cde;
+    padding: 10px;
+}
 
 .tip-Calculator {
    margin-left: auto;
    margin-right: auto;
 }
 
-.previous-number, .current-number {
-  font: 12px Arial, sans-serif;
+.output{
+  grid-column: 1 / -1;
+  background-color: white;
+  border: 0.25px solid lightgrey;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
-table, th, td {
-  background-color: #7CB9E8;
-  border: 1px solid;
-  border-collapse: collapse;
-  padding: 8px;
+.output-number{
+  font: 24px Verdana;
 }
+
+button:hover {
+     font-size: 1.10rem;
+     background-color: #FFFFFF;
+     border: 0.25px dotted lightblue;
+   }
 
 #tip-Result-Cell{
-
   text-align: center;
+  font-size: 2rem;
+  background-color: white;
+}
+
+#bg {
+
 }

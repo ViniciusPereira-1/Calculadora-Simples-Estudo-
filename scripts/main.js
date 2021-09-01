@@ -18,6 +18,7 @@ const currentNumberTextElement = document.querySelector('[data-current-number]')
 // Tip Calculator Objects
 const tipResultTextElement = document.querySelector('[data-tip-result]')
 const tipResult = document.querySelector('[data-equal-tip]')
+const tipClear= document.querySelector('[data-clear-tip]')
 
 class Calculator {
   constructor(previousNumberTextElement, currentNumberTextElement){
@@ -126,7 +127,7 @@ class Calculator {
     }
 
     if (decimalDigits != null) {
-      if (decimalDigits.length >= 10){
+      if (decimalDigits.length >= 40){
         let parsedNumber = parseFloat(integerDigits.toString() + '.' + decimalDigits.toString()).toFixed(10)
         return parsedNumber
       } else {
@@ -164,6 +165,13 @@ class TipCalculator extends Calculator {
     let tipPercentage = document.getElementById("tip-Input-Percentage").value || 10
     let tip = (((num/100) * tipPercentage).toFixed(2)) / tipPeopleNumber
     this.tipResultTextElement.innerText = this.displayNumber(tip)
+  }
+
+  clearTip(){
+    document.getElementById('tip-People').value = ''
+    document.getElementById('tip-Input').value = ''
+    document.getElementById('tip-Input-Percentage').value = ''
+    document.getElementById("tip-Result-Cell").innerText = ''
   }
 }
 
@@ -230,6 +238,10 @@ resultRecovery.addEventListener('click', button =>{
 
 tipResult.addEventListener('click', button =>{
   calculadoraGorjeta.tip(document.getElementById("tip-Input").value)
+})
+
+tipClear.addEventListener('click', button =>{
+  calculadoraGorjeta.clearTip()
 })
 
 /*
