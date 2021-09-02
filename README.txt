@@ -8,14 +8,12 @@ Permite operação básicas (soma, subtração, divisão e multiplicação, porc
 além de permitir a memorização de um número e recuperação do número atual, assim como a
 recuperação do ultimo resultado.
 
-VERSÃO 1.0:
+VERSÃO 1.1:
 
-- Todas as funções de cálculo estão implementadas e funcionais.
+- Melhoramentos no FrontEnd.
 
 Em andamento:
-- Melhoramento do frontend (CSS/HTML).
-- Finalizar a calculadora de Gorjetas.
-- Formatar o valor para resultados muito grandes.
+- Melhoramento do frontend (CSS/HTML)
 
 Possíveis Updates:
 - Operações mais complexas (Requer refactoring?).
