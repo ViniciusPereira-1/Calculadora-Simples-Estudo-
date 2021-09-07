@@ -14,6 +14,7 @@ VERSÃO 1.1:
 
 Em andamento:
 - Melhoramento do frontend (CSS/HTML)
+- Ajustar scroll da página
 
 Possíveis Updates:
 - Operações mais complexas (Requer refactoring?).

@@ -11,16 +11,14 @@
   <body>
 
     <header>
-    <br>
+      <br>
     </header>
 
-      <main>
+    <main>
 
       <br>
       <div class="calculator-grid">
-        <div class='calculator-title'>
-        <h1> CALCULADORA</h1>
-        </div>
+        <h1 class='calculator-title'> CALCULADORA</h1>
         <div class="output">
         <div data-previous-number class="output-number"> </div>
         <div data-current-number class="output-number"> </div>
@@ -53,38 +51,36 @@
 
       <br><br>
 
-      <table class="tip-Calculator">
+      <div id="tip-calculator-div">
+        <table class="tip-Calculator">
           <th colspan="3"> <h1>  CALCULADORA DE GORJETA </h1> </th>
           <tr>
-            <td> <label for="tip-Input"> Valor da conta</label> </td>
-            <td> <input type="text" name="tipCalculatorInput" id="tip-Input" required maxlength="10"> </td>
+            <td> Valor da conta </td>
+            <td> <input type="text" class="tip-form" name="tipCalculatorInput" id="tip-Input" required maxlength="10"> </td>
             <td rowspan="3"> <button class="tip-button" data-equal-tip> Calcular</button>
          </tr>
            <tr>
-             <td> <label for="tip-Input"> Número de pessoas </label> </td>
-             <td> <input type="text" name="tipCalculatorInput" id="tip-People" required maxlength="10"> </td>
+             <td>  Número de pessoas  </td>
+             <td> <input type="text" class="tip-form" name="tipCalculatorInput" id="tip-People" required maxlength="10"> </td>
            </tr>
          <tr>
-           <td> <label for="tip-Input"> Porcentagem de gorjeta </label> </td>
-           <td> <input type="text" name="tipCalculatorInput" id="tip-Input-Percentage" required maxlength="10"> </td>
-
+           <td>  Porcentagem de gorjeta </td>
+           <td> <input type="text" class="tip-form" name="tipCalculatorInput" id="tip-Input-Percentage" required maxlength="10"> </td>
          </tr>
          <tr>
            <td> O total para cada um é: </td>
-           <td> <div data-tip-result id="tip-Result-Cell">  </div> </td>
+           <td> <div data-tip-result class='tip-form' id="tip-Result-Cell">  </div> </td>
            <td> <button class="tip-button" data-clear-tip> Limpar </button>
         </tr>
       </table>
-
+      <br>
+      </div>
     </main>
 
-
-
-    <footer>
+   <footer class='footer'>
       <p> Feito por Vinicius Pereira - CC Commons //
       Tutorial utilizado: <a href="https://www.section.io/engineering-education/building-a-calculator-a-javascript-project-for-beginners/"> JS Calculator</a> </p>
     </footer>
-
+    
   </body>
-
 </html>

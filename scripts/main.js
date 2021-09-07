@@ -32,6 +32,9 @@ class Calculator {
   addNumber(num){
     if (num === '.' && this.currentNumber.includes('.')){ // this prevents consecutive decimal points
       return }
+    if (this.currentNumber.length > 20){
+      return
+    }
     this.currentNumber = this.currentNumber.toString() + num.toString()
   }
 
@@ -60,16 +63,12 @@ class Calculator {
   recoverNumber(){
     if (this.currentNumber === ''){
       this.addNumber(this.memoryNumber)
-    } else {
-      return
     }
   }
 
   recoverResult(){
     if (this.currentNumber === ''){
       this.addNumber(this.lastResult)
-    } else {
-      return
     }
   }
 
@@ -86,7 +85,7 @@ class Calculator {
   }
 
   calculate(){
-    let calculateResult
+    let calculateResult = undefined
     const currentNum = parseFloat(this.currentNumber)
     const previousNum = parseFloat(this.previousNumber)
     if (isNaN(currentNum) || isNaN(previousNum)) return
@@ -118,7 +117,7 @@ class Calculator {
     const integerDigits = parseFloat(numString.split('.')[0])
     let decimalDigits = numString.split('.')[1]
 
-    let numDisplay
+    let numDisplay = undefined
 
     if (isNaN(integerDigits)) {
       numDisplay = ''
