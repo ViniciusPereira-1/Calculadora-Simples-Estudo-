@@ -3,15 +3,15 @@
 
   <head>
     <meta charset="utf-8">
-    <title> Calculadora Simples </title>
+    <title> Calculadora </title>
     <link href="..\CSS\style.css" rel="stylesheet">
     <script src="..\scripts\main.js" defer></script>
   </head>
 
   <body>
 
-    <header>
-      <br>
+    <header> <p class='header'> <br> </p>
+    <img class='header-wave' src='../CSS/img/header-wave.svg'/>
     </header>
 
     <main>
@@ -26,27 +26,32 @@
         <button data-memory-store>Memorizar Número</button>
         <button data-memory-recover>Recuperar Número</button>
         <button data-memory-result>Ultimo Resultado</button>
+        <button data-clear-all>AC</button>
         <button data-operator> % </button>
         <button data-number>1</button>
         <button data-number>2</button>
         <button data-number>3</button>
         <button data-operator>*</button>
+        <button data-operator>÷</button>
         <button data-number>4</button>
         <button data-number>5</button>
         <button data-number>6</button>
+        <button data-operator>+</button>
         <button data-operator>-</button>
         <button data-number>7</button>
         <button data-number>8</button>
         <button data-number>9</button>
-        <button data-operator>+</button>
+        <button data-operator> ^ </button>
+        <button data-operator-advanced>√sqrt</button>
         <button data-number>.</button>
-        <button data-number>0</button>
+        <button data-number class="span-two">0</button>
         <button data-delete>DEL</button>
-        <button data-operator>÷</button>
-        <div style="text-align:center; font: 14px Amiri"> Versão 1.10 </div>
-        <button data-clear class="span-two">C</button>
-        <button data-clear-all class="span-two">AC</button>
-        <button data-result class="span-two">=</button>
+        <button data-clear>C</button>
+        <button data-operator-advanced> log E </button>
+        <button data-operator-advanced> ! </button>
+        <button data-result class="result-button">=</button>
+
+
       </div>
 
       <br><br>
@@ -75,12 +80,14 @@
       </table>
       <br>
       </div>
+
     </main>
 
-   <footer class='footer'>
-      <p> Feito por Vinicius Pereira - CC Commons //
-      Tutorial utilizado: <a href="https://www.section.io/engineering-education/building-a-calculator-a-javascript-project-for-beginners/"> JS Calculator</a> </p>
-    </footer>
-    
+   <footer>
+   <p class='footer'> Feito por Vinicius Pereira - CC Commons //
+      Tutorial utilizado:  <a href="https://www.section.io/engineering-education/building-a-calculator-a-javascript-project-for-beginners/"> JS Calculator</a> </p>
+   <img class='footer-wave' src='../CSS/img/wave.svg'/>
+   </footer>
+
   </body>
 </html>
