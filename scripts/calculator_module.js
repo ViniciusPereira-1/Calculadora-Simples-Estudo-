@@ -1,4 +1,4 @@
-// NOT IMPLEMENTED!!!!
+// NOT IMPLEMENTED / OUTDATED!!!!
 
 // add number to the calculator array (as a string, to prevent undesired calculations)
 function addNumber(num, obj) {

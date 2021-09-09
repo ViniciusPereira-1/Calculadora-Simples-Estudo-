@@ -8,16 +8,8 @@ Permite operação básicas (soma, subtração, divisão e multiplicação, porc
 além de permitir a memorização de um número e recuperação do número atual, assim como a
 recuperação do ultimo resultado.
 
-VERSÃO 1.1:
-
-- Melhoramentos no FrontEnd.
-
-Em andamento:
-- Melhoramento do frontend (CSS/HTML)
-- Ajustar scroll da página
-
 Possíveis Updates:
-- Operações mais complexas (Requer refactoring?).
+- Inserção de Sin(), Cos e Tan().
 - Modulação das operações (Requer API RequireJS para permitir o funcionamento.).
 
 ______________________________________________________________________________________

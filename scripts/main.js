@@ -5,6 +5,7 @@
 // Select the calculator Objects
 const numberButton = document.querySelectorAll('[data-number]')
 const operatorButton = document.querySelectorAll('[data-operator]')
+const advancedOperatorButton = document.querySelectorAll('[data-operator-advanced]')
 const deleteButton = document.querySelector('[data-delete]')
 const clear = document.querySelector('[data-clear]')
 const clearAll = document.querySelector('[data-clear-all]')
@@ -85,10 +86,13 @@ class Calculator {
   }
 
   calculate(){
+
     let calculateResult = undefined
     const currentNum = parseFloat(this.currentNumber)
     const previousNum = parseFloat(this.previousNumber)
+
     if (isNaN(currentNum) || isNaN(previousNum)) return
+
     switch(this.operator) {
       case '+':
         calculateResult = previousNum + currentNum
@@ -105,14 +109,50 @@ class Calculator {
       case '%':
         calculateResult = ((currentNum/100) * previousNum)
         break
-       }
+      case '^':
+          calculateResult = previousNum ** currentNum
+        break
+      }
+
     this.currentNumber = calculateResult
     this.operator = undefined;
     this.previousNumber = ""
   }
 
+   // "Advanced Calculations" refer to calculatios that apply to the current Number (sqrt, fatorial, log E, etc.)
+   advanceCalculate(operator){
+
+     let calculateResult = undefined
+     let currentNum = parseFloat(this.currentNumber)
+
+     if (isNaN(currentNum)) return
+     switch(operator) {
+       case '√sqrt':
+         calculateResult = Math.sqrt(currentNum)
+         break
+       case 'log E':
+         calculateResult = Math.log(currentNum)
+         break
+       case '!':
+         if (currentNum === 1 || currentNum < 0) { return }  // checks for fatorial "special" conditions (e.g. 0! = 1)
+           else if (currentNum === 0) {
+             this.currentNumber = 1
+             return
+         }
+
+         for (let i = (currentNum - 1) ; i > 0 ; i--) {
+           currentNum = currentNum * i
+         }
+         calculateResult = currentNum
+     }
+
+     this.currentNumber = calculateResult
+   }
+
+
   // Formats the number with decimals to be displayed.
   displayNumber(num) {
+
     const numString = num.toString()
     const integerDigits = parseFloat(numString.split('.')[0])
     let decimalDigits = numString.split('.')[1]
@@ -127,7 +167,7 @@ class Calculator {
 
     if (decimalDigits != null) {
       if (decimalDigits.length >= 40){
-        let parsedNumber = parseFloat(integerDigits.toString() + '.' + decimalDigits.toString()).toFixed(10)
+        let parsedNumber = parseFloat(integerDigits.toString() + '.' + decimalDigits.toString()).toFixed(10) // Limits the number of decimal digits
         return parsedNumber
       } else {
           return `${numDisplay}.${decimalDigits}`
@@ -139,11 +179,9 @@ class Calculator {
 
   // Updates the display as you use the calculator
   updateDisplay() {
-    this.currentNumberTextElement.innerText =
-      this.displayNumber(this.currentNumber)
+    this.currentNumberTextElement.innerText = this.displayNumber(this.currentNumber)
     if (this.operator != null) {
-      this.previousNumberTextElement.innerText =
-        `${this.displayNumber(this.previousNumber)} ${this.operator}`
+      this.previousNumberTextElement.innerText = `${this.displayNumber(this.previousNumber)} ${this.operator}`
     } else {
       this.previousNumberTextElement.innerText = ''
     }
@@ -192,6 +230,13 @@ numberButton.forEach(button => {
 operatorButton.forEach(button => {
   button.addEventListener('click', () => {
     calculadora.addOperator(button.innerText)
+    calculadora.updateDisplay()
+  })
+})
+
+advancedOperatorButton.forEach(button => {
+  button.addEventListener('click', () => {
+    calculadora.advanceCalculate(button.innerText)
     calculadora.updateDisplay()
   })
 })
