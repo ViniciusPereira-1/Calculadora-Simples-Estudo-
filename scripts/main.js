@@ -1,6 +1,11 @@
 // FOR MODULE USE, CURRENTLY NOT WORKING!
 // const calcMod = require('./calculator_module.js');
 
+// For users that enter the values of angles as degrees
+function degreeToRadians(deg) {
+  let rad = (Math.PI/180) * deg
+  return rad
+}
 
 // Select the calculator Objects
 const numberButton = document.querySelectorAll('[data-number]')
@@ -31,20 +36,15 @@ class Calculator {
   }
 
   addNumber(num){
-    if (num === '.' && this.currentNumber.includes('.')){ // this prevents consecutive decimal points
-      return }
-    if (this.currentNumber.length > 20){
-      return
-    }
+    if (num === '.' && this.currentNumber.includes('.')) return; // this prevents consecutive decimal points
+    if (this.currentNumber.length > 40)  return; // adds a limit to numbe r
     this.currentNumber = this.currentNumber.toString() + num.toString()
   }
 
   addOperator(operator){
-    if (this.currentNumber === ""){ // This prevents consecutives operators
-      return
-    } else if (this.previousNumber !== ""){
-      this.calculate();
-      }
+    if (this.currentNumber === "") return;
+    else if (this.previousNumber !== "") {
+      this.calculate(); }
     this.operator = operator
     this.previousNumber = this.currentNumber
     this.currentNumber = ""
@@ -55,9 +55,7 @@ class Calculator {
   }
 
   storeNumber(){
-    if (this.currentNumber === '') {
-      return
-    }
+    if (this.currentNumber === '') return;
     this.memoryNumber = this.currentNumber.toString()
   }
 
@@ -120,22 +118,26 @@ class Calculator {
   }
 
    // "Advanced Calculations" refer to calculatios that apply to the current Number (sqrt, fatorial, log E, etc.)
+   // This is used separately of the main calculate fucntion to maintain the calculator overall logic (previousNumber, Operator, CurrentNumber
    advanceCalculate(operator){
 
      let calculateResult = undefined
      let currentNum = parseFloat(this.currentNumber)
-
      if (isNaN(currentNum)) return
+
      switch(operator) {
+
        case '√sqrt':
          calculateResult = Math.sqrt(currentNum)
          break
+
        case 'log E':
          calculateResult = Math.log(currentNum)
          break
+
        case '!':
-         if (currentNum === 1 || currentNum < 0) { return }  // checks for fatorial "special" conditions (e.g. 0! = 1)
-           else if (currentNum === 0) {
+         if (currentNum === 1 || currentNum < 0) return   // checks for fatorial "special" conditions (e.g. 0! = 1)
+         else if (currentNum === 0) {
              this.currentNumber = 1
              return
          }
@@ -144,6 +146,20 @@ class Calculator {
            currentNum = currentNum * i
          }
          calculateResult = currentNum
+         break
+
+       case 'Sin()':
+         calculateResult = Math.sin(degreeToRadians(currentNum));
+         break
+
+       case 'Cos()':
+         calculateResult = Math.cos(degreeToRadians(currentNum));
+         break
+
+       case 'Tan()':
+        calculateResult = Math.tan(degreeToRadians(currentNum));
+        break
+
      }
 
      this.currentNumber = calculateResult
@@ -273,7 +289,6 @@ memoryRecovery.addEventListener('click', button =>{
   calculadora.updateDisplay()
 })
 
-
 // TipCalculator
 resultRecovery.addEventListener('click', button =>{
   calculadora.recoverResult()
@@ -287,35 +302,3 @@ tipResult.addEventListener('click', button =>{
 tipClear.addEventListener('click', button =>{
   calculadoraGorjeta.clearTip()
 })
-
-/*
-// Calculation Tests
-calculadora.result();
-calculadora.addNumber(5)
-calculadora.addNumber('.')
-calculadora.addOperator('+')
-calculadora.addNumber(7)
-calculadora.addOperator('+')
-calculadora.addNumber(5)
-calculadora.storeNumber();
-calculadora.result();
-console.log(calculadora)
-
-// Recovering from memory and clear test
-calculadora.addNumber(7)
-calculadora.addOperator('+')
-calculadora.recoverNumber();
-calculadora.addOperator('+')
-calculadora.recoverResult();
-console.log(calculadora)
-calculadora.result();
-console.log(calculadora)
-calculadora.clear();
-console.log(calculadora)
-calculadora.clearAll();
-console.log(calculadora)
-
-
-// Tip calculator test
-console.log(calculadoraGorjeta.tip(25.34))
-*/
