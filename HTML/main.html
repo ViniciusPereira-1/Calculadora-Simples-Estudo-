@@ -6,12 +6,14 @@
     <title> Calculadora </title>
     <link href="..\CSS\style.css" rel="stylesheet">
     <script src="..\scripts\main.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
 
-    <header> <p class='header'> <br> </p>
-    <img class='header-wave' src='../CSS/img/header-wave.svg'/>
+    <header>
+      <p class='header'> <br> </p>
+      <img class='header-wave' src='../CSS/img/header-wave.svg'/>
     </header>
 
     <main>
@@ -19,8 +21,8 @@
       <div class="calculator-grid">
         <h1 class='calculator-title'> CALCULADORA</h1>
         <div class="output">
-        <div data-previous-number class="output-number"> </div>
-        <div data-current-number class="output-number"> </div>
+          <div data-previous-number class="output-number"> </div>
+          <div data-current-number class="output-number"> </div>
         </div>
         <button data-memory-store>Memorizar Número</button>
         <button data-memory-recover>Recuperar Número</button>
@@ -53,10 +55,8 @@
         <button data-operator-advanced class>Sin()</button>
         <button data-operator-advanced class>Cos()</button>
         <button data-operator-advanced class>Tan()</button>
-        <div class="span-two" style="text-align: center; font: 18px Amiri;"> Versão 1.20 </div>
+        <div class="span-two" style="text-align: center; font: 1.5vh Amiri;"> Versão 1.20 </div>
       </div>
-
-      <br><br>
 
       <div id="tip-calculator-div">
         <table class="tip-Calculator">
@@ -78,17 +78,16 @@
            <td> O total para cada um é: </td>
            <td> <div data-tip-result class='tip-form' id="tip-Result-Cell">  </div> </td>
            <td> <button class="tip-button" data-clear-tip> Limpar </button>
-        </tr>
-      </table>
-      <br>
-      </div>
+         </tr>
+        </table>
+       </div>
 
     </main>
 
    <footer>
-   <p class='footer'> Feito por Vinicius Pereira - CC Commons //
+     <p class='footer'> Feito por Vinicius Pereira - CC Commons //
       Tutorial utilizado:  <a href="https://www.section.io/engineering-education/building-a-calculator-a-javascript-project-for-beginners/"> JS Calculator</a> </p>
-   <img class='footer-wave' src='../CSS/img/wave.svg'/>
+     <img class='footer-wave' src='../CSS/img/wave.svg'/>
    </footer>
 
   </body>

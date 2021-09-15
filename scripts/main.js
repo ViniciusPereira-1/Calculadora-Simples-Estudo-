@@ -28,23 +28,22 @@ const tipClear= document.querySelector('[data-clear-tip]')
 
 class Calculator {
   constructor(previousNumberTextElement, currentNumberTextElement){
-  this.previousNumberTextElement = previousNumberTextElement
-  this.currentNumberTextElement = currentNumberTextElement
-  this.previousNumber = ''
-  this.memoryNumber = ''
-  this.clearAll()
+    this.previousNumberTextElement = previousNumberTextElement
+    this.currentNumberTextElement = currentNumberTextElement
+    this.previousNumber = ''
+    this.memoryNumber = ''
+    this.clearAll()
   }
 
   addNumber(num){
     if (num === '.' && this.currentNumber.includes('.')) return; // this prevents consecutive decimal points
-    if (this.currentNumber.length > 40)  return; // adds a limit to numbe r
+    if (this.currentNumber.length > 40)  return; // adds a limit to number
     this.currentNumber = this.currentNumber.toString() + num.toString()
   }
 
   addOperator(operator){
     if (this.currentNumber === "") return;
-    else if (this.previousNumber !== "") {
-      this.calculate(); }
+    else if (this.previousNumber !== "") { this.calculate(); }
     this.operator = operator
     this.previousNumber = this.currentNumber
     this.currentNumber = ""
@@ -55,20 +54,16 @@ class Calculator {
   }
 
   storeNumber(){
-    if (this.currentNumber === '') return;
+    if (this.currentNumber === '') return
     this.memoryNumber = this.currentNumber.toString()
   }
 
   recoverNumber(){
-    if (this.currentNumber === ''){
-      this.addNumber(this.memoryNumber)
-    }
+    if (this.currentNumber === '') { this.addNumber(this.memoryNumber) }
   }
 
   recoverResult(){
-    if (this.currentNumber === ''){
-      this.addNumber(this.lastResult)
-    }
+    if (this.currentNumber === '') { this.addNumber(this.lastResult) }
   }
 
   clear(){
@@ -119,44 +114,39 @@ class Calculator {
 
    // "Advanced Calculations" refer to calculatios that apply to the current Number (sqrt, fatorial, log E, etc.)
    // This is used separately of the main calculate fucntion to maintain the calculator overall logic (previousNumber, Operator, CurrentNumber
-   advanceCalculate(operator){
+  advanceCalculate(operator){
 
-     let calculateResult = undefined
-     let currentNum = parseFloat(this.currentNumber)
-     if (isNaN(currentNum)) return
+    let calculateResult = undefined
+    let currentNum = parseFloat(this.currentNumber)
+    if (isNaN(currentNum)) return
 
-     switch(operator) {
-
-       case '√sqrt':
-         calculateResult = Math.sqrt(currentNum)
-         break
-
-       case 'log E':
-         calculateResult = Math.log(currentNum)
-         break
-
-       case '!':
-         if (currentNum === 1 || currentNum < 0) return   // checks for fatorial "special" conditions (e.g. 0! = 1)
-         else if (currentNum === 0) {
-             this.currentNumber = 1
-             return
+    switch(operator) {
+      case '√sqrt':
+        calculateResult = Math.sqrt(currentNum)
+        break
+      case 'log E':
+        calculateResult = Math.log(currentNum)
+        break
+      case '!':
+        if (currentNum === 1 || currentNum < 0) return   // checks for fatorial "special" conditions (e.g. 0! = 1)
+          else if (currentNum === 0) {
+            this.currentNumber = 1
+            return
          }
 
-         for (let i = (currentNum - 1) ; i > 0 ; i--) {
-           currentNum = currentNum * i
-         }
-         calculateResult = currentNum
-         break
+          for (let i = (currentNum - 1) ; i > 0 ; i--) { currentNum = currentNum * i  }
+          calculateResult = currentNum
+          break
 
-       case 'Sin()':
-         calculateResult = Math.sin(degreeToRadians(currentNum));
-         break
+      case 'Sin()':
+        calculateResult = Math.sin(degreeToRadians(currentNum));
+        break
 
-       case 'Cos()':
-         calculateResult = Math.cos(degreeToRadians(currentNum));
-         break
+      case 'Cos()':
+        calculateResult = Math.cos(degreeToRadians(currentNum));
+        break
 
-       case 'Tan()':
+      case 'Tan()':
         calculateResult = Math.tan(degreeToRadians(currentNum));
         break
 
@@ -175,19 +165,14 @@ class Calculator {
 
     let numDisplay = undefined
 
-    if (isNaN(integerDigits)) {
-      numDisplay = ''
-    } else {
-      numDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
-    }
+    if (isNaN(integerDigits)) { numDisplay = '' }
+    else { numDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 }) }
 
     if (decimalDigits != null) {
       if (decimalDigits.length >= 40){
         let parsedNumber = parseFloat(integerDigits.toString() + '.' + decimalDigits.toString()).toFixed(10) // Limits the number of decimal digits
         return parsedNumber
-      } else {
-          return `${numDisplay}.${decimalDigits}`
-        }
+      } else { return `${numDisplay}.${decimalDigits}` }
     } else {
         return numDisplay
     }
@@ -208,8 +193,8 @@ class Calculator {
 // TipCalculator Still under implementation
 class TipCalculator extends Calculator {
   constructor(tipResultTextElement){
-   super()
-   this.tipResultTextElement = tipResultTextElement
+    super()
+    this.tipResultTextElement = tipResultTextElement
   }
 
   tip(input){
