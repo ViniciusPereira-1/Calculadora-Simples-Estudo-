@@ -121,12 +121,19 @@ class Calculator {
     if (isNaN(currentNum)) return
 
     switch(operator) {
+
       case '√sqrt':
         calculateResult = Math.sqrt(currentNum)
         break
+
       case 'log E':
         calculateResult = Math.log(currentNum)
         break
+        
+      case 'log 10':
+        calculateResult = Math.log10(currentNum)
+        break
+
       case '!':
         if (currentNum === 1 || currentNum < 0) return   // checks for fatorial "special" conditions (e.g. 0! = 1)
           else if (currentNum === 0) {
