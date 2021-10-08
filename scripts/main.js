@@ -1,6 +1,3 @@
-// FOR MODULE USE, CURRENTLY NOT WORKING!
-// const calcMod = require('./calculator_module.js');
-
 // For users that enter the values of angles as degrees
 function degreeToRadians(deg) {
   let rad = (Math.PI/180) * deg
@@ -129,7 +126,7 @@ class Calculator {
       case 'log E':
         calculateResult = Math.log(currentNum)
         break
-        
+
       case 'log 10':
         calculateResult = Math.log10(currentNum)
         break
